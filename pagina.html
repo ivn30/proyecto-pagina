@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MangaList</title>
+  <link rel="stylesheet" href="/css/pagina.css" />
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <a href="/">Inicio</a>
+      <a href="#">Mangas</a>
+      <a href="#">Autores</a>
+      <a href="#">Contacto</a>
+    </div>
+    <div class="buscador">
+      <input type="text" id="buscador" placeholder="Buscar manga..." aria-label="Buscar manga" />
+    </div>
+  </nav>
+
+  <main>
+    <div class="imagenes-container" id="contenedor-mangas">
+    </div>
+  </main>
+
+  <script>
+    const series = [
+      { nombre: "OP", titulo: "ONE PIECE", portada: "/OP/portadas/onepiece.png" },
+      { nombre: "JK", titulo: "JUJUTSU KAISEN", portada: "/JK/portadas/jujutsuk.jpg" },
+      { nombre: "MOB", titulo: "MOB PSYCHO 100", portada: "/MOB/portadas/mobpsycho.jpg" },
+      { nombre: "HXH", titulo: "HUNTER X HUNTER", portada: "/HXH/portadas/hxh.jpg" },
+      { nombre: "VINLAND", titulo: "VINLAND SAGA", portada: "/VINLAND/portadas/vinland.jpg" }
+    ];
+
+    const contenedor = document.getElementById('contenedor-mangas');
+
+    series.forEach(s => {
+      const a = document.createElement('a');
+      a.href = `/serie/${s.nombre}`;
+      a.className = 'imagen-con-texto';
+      a.setAttribute('data-titulo', s.titulo);
+      a.setAttribute('aria-label', `Ir a capítulos de ${s.titulo}`);
+      
+      a.innerHTML = `
+        <span class="titulo-encima">${s.titulo}</span>
+        <img class="portada" src="${s.portada}" alt="Portada del Manga ${s.titulo}" />
+      `;
+      
+      contenedor.appendChild(a);
+    });
+
+    const buscador = document.getElementById('buscador');
+    const mangas = () => document.querySelectorAll('.imagen-con-texto');
+
+    buscador.addEventListener('input', () => {
+      const filtro = buscador.value.toLowerCase();
+      mangas().forEach(manga => {
+        const titulo = manga.getAttribute('data-titulo').toLowerCase();
+        manga.style.display = titulo.includes(filtro) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #121212;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.portada-con-info {
+  max-width: 100%;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.portada {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(106, 43, 226, 0.6);
+  display: block;
+  margin: 0 auto 15px;
+}
+
+.info-manga {
+  background-color: #1e1e2f;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(100, 100, 255, 0.2);
+  margin-top: 10px;
+  text-align: left;
+}
+.info-manga p {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #7a99d9;
+  margin-bottom: 8px;
+}
+
+.info-manga p strong {
+  color: #a1aaff;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: #6699cc;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #a3c1ff;
+  text-decoration: underline;
+}
+
+section {
+  background-color: #1e1e2f;
+  padding: 18px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(51, 102, 204, 0.5);
+}
+
+h2 {
+  color: #a1aaff;
+  margin-bottom: 14px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+ul.capitulos {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.capitulos li {
+  margin-bottom: 10px;
+}
+
+ul.capitulos li a {
+  text-decoration: none;
+  color: #7a99d9;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+ul.capitulos li a:hover {
+  color: #b0c8ff;
+  text-decoration: underline;
+}

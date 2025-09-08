@@ -1,0 +1,2 @@
+autor=Eiichiro Oda
+generos=Aventura,Accion,Fantasia

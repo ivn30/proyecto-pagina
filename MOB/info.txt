@@ -1,0 +1,2 @@
+autor=One
+generos=Accion, Comedia, Sobrenatural, Superpoderes

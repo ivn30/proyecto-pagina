@@ -1,0 +1,2 @@
+autor=Makoto Yukimura
+generos=Accion, Aventura, Drama, Historico
