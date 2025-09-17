@@ -74,6 +74,18 @@ if (fs.existsSync(infoPath)) {
 <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
+    <nav class="menu-nav"> 
+      <div class="menu">
+        <a href="/">Inicio</a>
+        <a href="/autores">Autores</a>
+        <a href="https://github.com/ivn30">Contacto</a>
+      </div>
+    </nav>
+    
+    <header>
+      <h1>${serie}</h1>
+    </header>
+
 <div class="portada-con-info">
   ${portada ? `<img class="portada" src="/${portada}" alt="Portada de ${serie}" />` : ''}
   <div class="info-manga">
@@ -126,6 +138,14 @@ app.get('/serie/:nombre/:capitulo', (req, res) => {
 <script src="/js/turn.min.js"></script>
 </head>
 <body>
+    <nav class="menu-nav"> 
+      <div class="menu">
+        <a href="/">Inicio</a>
+        <a href="/autores">Autores</a>
+        <a href="https://github.com/ivn30">Contacto</a>
+      </div>
+    </nav>
+    
 <header>
 <h1>${serie} - ${capitulo}</h1>
 <a href="/serie/${serie}">← Volver a capítulos</a>
