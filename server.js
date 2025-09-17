@@ -152,6 +152,79 @@ $(document).ready(function() {
 `;
   res.send(html);
 });
+app.get('/autores', (req, res) => {
+  const autorData = [];
+  
+  const series = ['OP', 'JK', 'HXH', 'MOB', 'VINLAND'];
+
+  series.forEach(serie => {
+    const seriePath = path.join(__dirname, serie);
+    const autorImgPath = path.join(seriePath, 'autor.jpg');
+    let autor = 'Autor desconocido';
+
+    const infoPath = path.join(seriePath, 'info.txt');
+    if (fs.existsSync(infoPath)) {
+      const infoRaw = fs.readFileSync(infoPath, 'utf-8');
+      const lines = infoRaw.split('\n');
+      lines.forEach(line => {
+        const [key, value] = line.split('=');
+        if (key && value) {
+          if (key.trim().toLowerCase() === 'autor') {
+            autor = value.trim();
+          }
+        }
+      });
+    }
+
+    if (fs.existsSync(autorImgPath)) {
+      autorData.push({
+        nombre: autor,
+        serie: serie,
+        imagen: `/${serie}/autor.jpg`
+      });
+    }
+  });
+
+  const html = `
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Autores</title>
+  <link rel="stylesheet" href="/css/autores.css" />
+</head>
+<body>
+  <nav class="menu-nav">
+    <div class="menu">
+      <a href="/">Inicio</a>
+      <a href="#">Autores</a>
+      <a href="https://github.com/ivn30">Contacto</a>
+    </div>
+  </nav>
+
+  <h1>Autores</h1>
+
+  <section>
+    ${autorData.map(autor => `
+      <div class="autor">
+        <img class="autor-img" src="${autor.imagen}" alt="Foto de ${autor.nombre}" />
+        <h2>${autor.nombre}</h2>
+        <ul>
+          <li><a href="/serie/${autor.serie}">Ver Su Serie ${autor.serie}</a></li>
+        </ul>
+      </div>
+    `).join('')}
+  </section>
+
+  <a class="back-link" href="/">← Volver al inicio</a>
+
+</body>
+</html>
+  `;
+
+  res.send(html);
+});
 
 const PORT = 3000;
 app.listen(PORT, () => console.log('Servidor corriendo en http://localhost:' + PORT));
