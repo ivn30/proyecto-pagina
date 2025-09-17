@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #121212;
   color: #e0e0e0;
   min-height: 100vh;
@@ -22,42 +22,68 @@ nav {
   margin: 0 auto;
   background-color: #333;
   color: white;
-  padding: 10px 20px;
+  padding: 15px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  border-bottom: 1px solid #8a2be2;
+  border-bottom: 2px solid #8a2be2;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
 }
 
 nav .menu {
   display: flex;
-  gap: 15px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 nav .menu a {
   color: #ffffff;
   text-decoration: none;
   font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: background-color 0.3s, color 0.3s;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 nav .menu a:hover,
 nav .menu a:focus {
   background-color: #8a2be2;
   color: #121212;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
   outline: none;
 }
 
+nav .buscador {
+  display: flex;
+  align-items: center;
+}
+
 nav .buscador input[type="text"] {
-  padding: 6px 10px;
-  border-radius: 6px;
+  padding: 8px 12px;
+  border-radius: 30px;
   border: none;
   font-size: 1rem;
-  width: 200px;
+  width: 250px;
   max-width: 100%;
+  background-color: #222;
+  color: #fff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-left: 20px;
+}
+
+nav .buscador input[type="text"]:focus {
+  background-color: #121212;
+  box-shadow: 0 6px 16px rgba(138, 43, 226, 0.5);
+  outline: none;
 }
 
 .imagenes-container {
@@ -76,7 +102,7 @@ nav .buscador input[type="text"] {
   text-decoration: none;
   border-radius: 16px;
   transition: transform 0.3s ease;
-  color: #8a2be2;
+  color: #ffffff;
   text-align: center;
   background: none;
   box-shadow: none;
