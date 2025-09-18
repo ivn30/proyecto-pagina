@@ -1,2 +1,3 @@
 autor=Gege Akutami
 generos=Aventura,Fantasia Oscura,Sobrenatural
+wikipedia=https://es.wikipedia.org/wiki/Gege_Akutami
