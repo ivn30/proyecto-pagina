@@ -191,14 +191,15 @@ app.get('/autores', (req, res) => {
       lines.forEach(line => {
         const [key, value] = line.split('=');
         if (key && value) {
-          if (key.trim().toLowerCase() === 'autor') {
-            autor = value.trim();
+          const k = key.trim().toLowerCase();
+          const v = value.trim();
+          if (k === 'autor') {
+            autor = v;
           }
-          if (key && value) {
-            if (key.trim().toLowerCase() === 'wikipedia') {
-              wikipedia= value.trim();
+          if (k === 'wikipedia') {
+            wikipedia = v;
+          }
         }
-          }     
       });
     }
 
@@ -206,7 +207,7 @@ app.get('/autores', (req, res) => {
       autorData.push({
         nombre: autor,
         serie: serie,
-        imagen: `/${serie}/autor.jpg`
+        imagen: `/${serie}/autor.jpg`,
         wikipedia
       });
     }
@@ -239,7 +240,7 @@ app.get('/autores', (req, res) => {
         <h2>${autor.nombre}</h2>
         <ul>
           <li><a href="/serie/${autor.serie}">Ver Su Serie ${autor.serie}</a></li>
-          ${autor.wikipedia ? `<li><a href="${autor.wikipedia}" target="_blank>Wikipedia<a/><li/>` : ''}
+          ${autor.wikipedia ? `<li><a href="${autor.wikipedia}" target="_blank">Wikipedia</a></li>` : ''}
         </ul>
       </div>
     `).join('')}
