@@ -79,7 +79,6 @@ a.back-link:hover,
 a.back-link:focus {
   text-decoration: underline;
   color: #b08cff;
-  outline: none;
 }
 
 #flipbook {
