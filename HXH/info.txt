@@ -1,2 +1,3 @@
 autor=Yoshihiro Togashi
 generos=Accion, Aventura, Fantasia Oscura, Psicologico, Tragedia
+wikipedia=https://es.wikipedia.org/wiki/Yoshihiro_Togashi
