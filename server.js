@@ -34,6 +34,7 @@ if (fs.existsSync(infoPath)) {
     if (key && value) {
       if (key.trim().toLowerCase() === 'autor') autor = value.trim();
       if (key.trim().toLowerCase() === 'generos') generos = value.trim();
+      if (key.trim().toLowerCase() === 'wikipedia') wikipedia= value.trim();
     }
   });
   
@@ -181,6 +182,7 @@ app.get('/autores', (req, res) => {
     const seriePath = path.join(__dirname, serie);
     const autorImgPath = path.join(seriePath, 'autor.jpg');
     let autor = 'Autor desconocido';
+    let wikipedia = null;
 
     const infoPath = path.join(seriePath, 'info.txt');
     if (fs.existsSync(infoPath)) {
@@ -192,7 +194,11 @@ app.get('/autores', (req, res) => {
           if (key.trim().toLowerCase() === 'autor') {
             autor = value.trim();
           }
+          if (key && value) {
+            if (key.trim().toLowerCase() === 'wikipedia') {
+              wikipedia= value.trim();
         }
+          }     
       });
     }
 
@@ -201,6 +207,7 @@ app.get('/autores', (req, res) => {
         nombre: autor,
         serie: serie,
         imagen: `/${serie}/autor.jpg`
+        wikipedia
       });
     }
   });
@@ -232,6 +239,7 @@ app.get('/autores', (req, res) => {
         <h2>${autor.nombre}</h2>
         <ul>
           <li><a href="/serie/${autor.serie}">Ver Su Serie ${autor.serie}</a></li>
+          ${autor.wikipedia ? `<li><a href="${autor.wikipedia}" target="_blank>Wikipedia<a/><li/>` : ''}
         </ul>
       </div>
     `).join('')}
