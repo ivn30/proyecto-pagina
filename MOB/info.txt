@@ -1,2 +1,3 @@
 autor=One
 generos=Accion, Comedia, Sobrenatural, Superpoderes
+wikipedia=https://es.wikipedia.org/wiki/One_(dibujante)
