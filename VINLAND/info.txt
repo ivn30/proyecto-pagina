@@ -1,2 +1,3 @@
 autor=Makoto Yukimura
 generos=Accion, Aventura, Drama, Historico
+wikipedia=https://es.wikipedia.org/wiki/Makoto_Yukimura
