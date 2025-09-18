@@ -1,2 +1,3 @@
 autor=Eiichiro Oda
 generos=Aventura,Accion,Fantasia
+wikipedia=https://es.wikipedia.org/wiki/Eiichir%C5%8D_Oda
